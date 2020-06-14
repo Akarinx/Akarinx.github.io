@@ -1,0 +1,252 @@
+:root {
+    --themeColor: #41496b;
+    --embelliColor: #12e4fb;
+    --textColor: #e9b8c1;
+    --lightTextColor: #fffafa;
+    --scrollbarColor: #232628;
+    --cursorColor: #ffffff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-size: 16px;
+    font-family: "-apple-system", "BlinkMacSystemFont", "PingFang SC", "Segoe UI",
+        Tahoma, "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", Helvetica,
+        Arial, "宋体", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    color: var(--textColor);
+    font-weight: normal;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+/* body,
+  a {
+      cursor: none;
+  } */
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--textColor);
+}
+
+
+.body-window {
+    width: 100vw;
+    height: 100vh;
+    /* position: fixed;
+      overflow: hidden; */
+}
+
+.body-background {
+    width: 102vw;
+    height: 102vh;
+    position: fixed;
+    top: -1%;
+    left: -1%;
+    background-image: -webkit-gradient(linear,
+            left top,
+            left bottom,
+            from(rgba(0, 0, 0, 0.3)),
+            to(rgba(0, 0, 0, 0.3))),
+        url("../assets/img/background.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("../assets/img/background.jpg");
+    background-position: center;
+    background-size: cover;
+    z-index: -10000;
+}
+
+.scrollbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 6px;
+    height: 100vh;
+    background-color: var(--scrollbarColor);
+    z-index: 10000;
+    --barColor: var(--themeColor);
+}
+
+.scrollbar:hover {
+    --barColor: var(--embelliColor);
+}
+
+.scrollbar .bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--barColor);
+    -webkit-box-shadow: 0 4px 8px var(--barColor);
+    box-shadow: 0 4px 8px var(--barColor);
+    -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s;
+    transition: background-color 0.5s, -webkit-box-shadow 0.5s;
+    transition: background-color 0.5s, box-shadow 0.5s;
+    transition: background-color 0.5s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
+}
+
+.scrollbar .bar::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 0;
+    border-top: 3px solid var(--barColor);
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid var(--barColor);
+    -webkit-transition: border 0.5s, -webkit-box-shadow 0.5s;
+    transition: border 0.5s, -webkit-box-shadow 0.5s;
+    transition: border 0.5s, box-shadow 0.5s;
+    transition: border 0.5s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
+}
+
+.margin-wrapper {
+    margin: 0 50px 0 50px;
+}
+
+.main-wrapper {
+    width: 80vw;
+    margin: 3vw auto;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.main {
+    display: flex;
+    padding: 2vw 0;
+}
+
+.paper {
+    flex: 2;
+    height: 30vh;
+    margin: 0 3vh;
+    border: 1px solid rgba(0, 0, 0, 0.4)
+}
+
+.person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    flex: 1;
+    color: white;
+}
+
+.person .headPic {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-image: url(../assets/img/fox.png);
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+}
+
+.person .headPic::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    z-index: -1;
+}
+
+.person .headPic::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    z-index: -2;
+    filter: blur(20px);
+}
+
+.person .headPic::before,
+.person .headPic::after {
+    background: linear-gradient(235deg, #22cfaa, #2c2c33, #00bcd4);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.person .headPic:hover::before {
+    opacity: 1;
+}
+
+.person .headPic:hover::after {
+    opacity: 1;
+}
+
+.person .intro {
+    width: 100%;
+    margin-top: 5vh;
+    padding: 10px 0;
+    text-align: center;
+    font-family: "Ubuntu", "Microsoft YaHei", "HelveticaNeue-Bold", "PingFang SC",
+        Arial, sans-serif;
+    background: rgba(172, 169, 171, 0);
+    transition: 0.3s ease;
+}
+
+.person .intro:hover {
+    background: rgba(172, 169, 171, 0.3);
+}
+
+.arti {
+    display: flex;
+    max-height: 80vh;
+    overflow: scroll;
+    flex-direction: column;
+    margin: 1vh 3vw;
+    padding: 0 5vw;
+    border-left: 1px solid rgba(172, 169, 171, 0.3);
+    border-right: 1px solid rgba(172, 169, 171, 0.3);
+}
+
+.arti::-webkit-scrollbar {
+
+    display: none;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+}
+
+.paper {
+    margin: 2vh 3vw;
+    min-height: 50vh;
+    display: flex;
+    border: 0;
+    border-bottom: 1px solid rgba(172, 169, 171, 0.3);
+    flex-direction: column;
+    align-items: center;
+}
+
+.paper h2 {
+    width: 60%;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid rgba(124, 121, 111, 0.3);
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "Ubuntu", "Microsoft YaHei", "HelveticaNeue-Bold", "PingFang SC",
+        Arial, sans-serif;
+}
+
+.paper article {
+    font-family: "Ubuntu", "Microsoft YaHei", "HelveticaNeue-Bold", "PingFang SC",
+        Arial, sans-serif;
+    background-color: rgba(178, 178, 178, 0.3);
+    margin-top: 5vh;
+}
