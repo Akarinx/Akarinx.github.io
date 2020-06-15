@@ -250,3 +250,13 @@ a {
     background-color: rgba(178, 178, 178, 0.3);
     margin-top: 5vh;
 }
+
+@media all and (max-width:720px) {
+    .main {
+        flex-direction: column-reverse;
+    }
+
+    .person {
+        margin: 0 auto;
+    }
+}

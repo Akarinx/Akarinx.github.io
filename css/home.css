@@ -338,6 +338,7 @@ a {
 
 .hero-wrapper {
     height: 100vh;
+    min-height: 384px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -391,6 +392,16 @@ a {
     .hero .date {
         display: none;
     }
+
+    .fox {
+        display: none;
+    }
+
+    .hero .title h2 {
+        font-size: 3.5em;
+    }
+
+
 }
 
 .content-wrapper {
